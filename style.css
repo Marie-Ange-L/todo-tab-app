@@ -1,0 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Archivo:wght@300;400;700&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Archivo+Black:regular&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Pacifico:regular&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Dosis:regular&display=swap);
+
+:root {
+	--main-color: 232, 212, 231; /*  #e8d4e7 */
+	--todo-color: 255, 210, 126; /* #ffd27e */
+	--daily-color: 50, 174, 160; /* #32aea0 */
+	--notes-color: 232, 113, 82; /* #e87152 */
+	--text-color: 47, 51, 51; /* #2f3333 */
+	--background-color: #f8f8f8;
+}
+
+body {
+	background-color: rgba(var(--main-color), 0.3);
+	font-family: "Archivo", sans-serif;
+	font-weight: 300;
+	color: rgba(var(--text-color));
+}
+
+h1 {
+	font-family: "Archivo Black", sans-serif;
+	color: rgba(var(--main-color));
+}
+
+h2 {
+	font-family: "Pacifico", cursive;
+}
+
+footer {
+	background-color: var(--text-color);
+	font-family: "Dosis", sans-serif;
+	color: rgba(var(--background-color));
+}
