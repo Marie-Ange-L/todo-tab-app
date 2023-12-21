@@ -16,20 +16,134 @@ body {
 	background-color: rgba(var(--main-color), 0.3);
 	font-family: "Archivo", sans-serif;
 	font-weight: 300;
+	font-size: 14px;
 	color: rgba(var(--text-color));
+}
+
+.dashboard {
+	max-width: 1440px;
+	margin: 0 auto;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	max-width: 1440px;
+	padding: 0 15px;
+}
+
+.main {
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	justify-content: space-between;
+	margin: 0 15px;
+}
+
+.left-container {
+	width: 35%;
+	min-width: 470px;
+	margin: 15px 15px 15px 0;
+}
+
+.right-container {
+	width: 65%;
+	margin: 15px 0;
+	max-width: 860px;
 }
 
 h1 {
 	font-family: "Archivo Black", sans-serif;
 	color: rgba(var(--main-color));
+	font-size: 80px;
+	margin: 0;
+	text-shadow: 4px 4px 0 rgba(var(--text-color));
 }
 
 h2 {
 	font-family: "Pacifico", cursive;
+	margin: 0;
+	font-size: 40px;
+}
+
+.container {
+	border: rgba(var(--text-color)) solid 1px;
+	border-radius: 16px;
+	box-shadow: 4px 4px 0 rgba(var(--text-color));
+}
+
+.container .heading {
+	background-color: rgb(255, 0, 0, 0.3);
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	position: relative;
+	width: 100%;
+	height: 60px;
+}
+
+.container .heading h2 {
+	position: absolute;
+	bottom: -14px;
+}
+
+.small-containers {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: 25px;
+}
+
+.small-containers .container {
+	width: 260px;
+	height: 390px;
+	margin-bottom: 25px;
+}
+
+.small-containers .heading {
+	font-size: 32px;
+	height: 50px;
+}
+
+.small-containers h2 {
+	font-size: 26px;
+}
+
+.unsplash-image-container {
+	overflow: hidden;
+}
+
+.unsplash-image-container img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
 }
 
 footer {
-	background-color: var(--text-color);
+	background-color: rgba(var(--text-color));
 	font-family: "Dosis", sans-serif;
-	color: rgba(var(--background-color));
+	color: var(--background-color);
+	height: 40px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 15px;
+}
+
+footer .social-links {
+	margin-right: 15px;
+}
+
+@media (max-width: 1340px) {
+	body {
+		overflow: auto;
+	}
+	.right-container {
+		width: 100%;
+	}
 }

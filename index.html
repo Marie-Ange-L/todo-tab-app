@@ -14,7 +14,7 @@
 		<title>Todo Tab App</title>
 	</head>
 	<body>
-		<div class="main">
+		<div class="dashboard">
 			<div class="header">
 				<h1>Hello</h1>
 				<div class="day-infos-container" id="dayInfos">
@@ -24,79 +24,84 @@
 					</p>
 				</div>
 			</div>
-			<div class="left-container">
-				<div class="container todo-container">
-					<div class="heading"><h2>Todo Today</h2></div>
-					<div class="todo-list" id="todo">
-						<ul>
-							<li class="list-item">Ranger bureau</li>
-							<li class="list-item">Prendre rendez-vous prise de sang</li>
-							<li class="list-item">Trouver une idée géniale</li>
-							<li class="list-item done">Acheter super livre</li>
-							<li class="list-item">Trouver une autre idée géniale</li>
-						</ul>
-					</div>
-					<div class="todo-input">
-						<input type="text" class="todo-input" id="todoText" /><button
-							class="todo-btn"
-							id="todoBtn"
-						>
-							<i class="fa-regular fa-paper-plane"></i>
-						</button>
-					</div>
-				</div>
-			</div>
-			<div class="right-container">
-				<div class="container quote-container" id="dailyQuote">
-					<div class="quote-icon">“</div>
-					<p class="quote-text">
-						Once your excuses are gone, you will simply have to settle for being
-						awesome!
-					</p>
-					<p class="quote-author">Lorii Myers</p>
-				</div>
-				<div class="container daily-tracker-container">
-					<div class="heading"><h2>Daily Tracker</h2></div>
-					<div class="daily-list">
-						<ul>
-							<li>
-								<input type="checkbox" name="water" id="water" />Drink enough
-								water
-							</li>
-							<li>
-								<input type="checkbox" name="read" id="read" />Read min. 15
-								minutes
-							</li>
-							<li>
-								<input type="checkbox" name="work" id="work" />Work min. 3 hours
-							</li>
-							<li>
-								<input type="checkbox" name="yoga" id="yoga" />Yoga min. 10
-								minutes
-							</li>
-							<li>
-								<input type="checkbox" name="learn" id="learn" />Learn something
-								new
-							</li>
-						</ul>
-					</div>
-					<div class="daily-progress">
-						<div class="daily-progress-bar" id="progressBar"></div>
-						<div class="daily-progress-bar-message" id="progressMsg">
-							Great!
+			<div class="main">
+				<div class="left-container">
+					<div class="container todo-container">
+						<div class="heading"><h2>Todo Today</h2></div>
+						<div class="todo-list" id="todo">
+							<ul>
+								<li class="list-item">Ranger bureau</li>
+								<li class="list-item">Prendre rendez-vous prise de sang</li>
+								<li class="list-item">Trouver une idée géniale</li>
+								<li class="list-item done">Acheter super livre</li>
+								<li class="list-item">Trouver une autre idée géniale</li>
+							</ul>
+						</div>
+						<div class="todo-input">
+							<input type="text" class="todo-input" id="todoText" /><button
+								class="todo-btn"
+								id="todoBtn"
+							>
+								<i class="fa-regular fa-paper-plane"></i>
+							</button>
 						</div>
 					</div>
 				</div>
-				<div class="container notes-container">
-					<div class="heading"><h2>Notes</h2></div>
-					<div class="notes-text">
-						<textarea name="notes" id="notes"></textarea>
+				<div class="right-container">
+					<div class="container quote-container" id="dailyQuote">
+						<div class="quote-icon">“</div>
+						<p class="quote-text">
+							Once your excuses are gone, you will simply have to settle for
+							being awesome!
+						</p>
+						<p class="quote-author">Lorii Myers</p>
 					</div>
-				</div>
-				<div class="container unsplash-image-container" id="unsplashImage">
-					<a href="#" target="_blank"
-						><img src="https://source.unsplash.com/random" width="300px" alt=""
-					/></a>
+					<div class="small-containers">
+						<div class="container daily-tracker-container">
+							<div class="heading"><h2>Daily Tracker</h2></div>
+							<div class="daily-list">
+								<ul>
+									<li>
+										<input type="checkbox" name="water" id="water" />Drink
+										enough water
+									</li>
+									<li>
+										<input type="checkbox" name="read" id="read" />Read min. 15
+										minutes
+									</li>
+									<li>
+										<input type="checkbox" name="work" id="work" />Work min. 3
+										hours
+									</li>
+									<li>
+										<input type="checkbox" name="yoga" id="yoga" />Yoga min. 10
+										minutes
+									</li>
+									<li>
+										<input type="checkbox" name="learn" id="learn" />Learn
+										something new
+									</li>
+								</ul>
+							</div>
+							<div class="daily-progress">
+								<div class="daily-progress-bar" id="progressBar"></div>
+								<div class="daily-progress-bar-message" id="progressMsg">
+									Great!
+								</div>
+							</div>
+						</div>
+						<div class="container notes-container">
+							<div class="heading"><h2>Notes</h2></div>
+							<div class="notes-text">
+								<textarea name="notes" id="notes"></textarea>
+							</div>
+						</div>
+						<div class="container unsplash-image-container" id="unsplashImage">
+							<a href="#" target="_blank"
+								><img src="https://source.unsplash.com/random" alt=""
+							/></a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
