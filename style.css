@@ -163,16 +163,6 @@ h2 {
 	scale: 0.95;
 }
 
-.daily-tracker-container .heading {
-	background-color: rgba(var(--daily-color), 0.3);
-	color: rgba(var(--daily-color));
-}
-
-.notes-container .heading {
-	background-color: rgba(var(--notes-color), 0.3);
-	color: rgba(var(--notes-color));
-}
-
 .quote-container {
 	height: 150px;
 	padding: 20px;
@@ -217,6 +207,76 @@ h2 {
 .small-containers .container {
 	width: 260px;
 	height: 390px;
+}
+
+.daily-tracker-container .heading {
+	background-color: rgba(var(--daily-color), 0.3);
+	color: rgba(var(--daily-color));
+}
+
+.daily-tracker-container .daily-list ul {
+	list-style-type: none;
+	margin-top: 30px;
+}
+
+.daily-tracker-container .daily-list li {
+	padding: 10px 0;
+	display: flex;
+	align-items: center;
+}
+
+.daily-tracker-container .daily-list input[type="checkbox"] {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 15px;
+	height: 15px;
+	border: 1px solid rgba(var(--daily-color));
+	border-radius: 50%;
+	outline: none;
+	cursor: pointer;
+}
+
+.daily-tracker-container .daily-list input[type="checkbox"]:checked {
+	background-color: rgba(var(--daily-color));
+}
+
+/* Optional: Style the label associated with the checkbox */
+label {
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+.daily-tracker-container .daily-progress {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 25px;
+}
+
+.daily-tracker-container .daily-progress .daily-progress-bar {
+	width: 80%;
+	height: 20px;
+	border: 1px solid rgba(var(--daily-color));
+	border-radius: 4px;
+}
+
+.daily-tracker-container .daily-progress .progress {
+	background-color: rgba(var(--daily-color));
+	height: 100%;
+	width: calc(2 / 5 * 100%);
+}
+
+.daily-tracker-container .daily-progress .progress-message {
+	font-family: "Archivo Black", sans-serif;
+	font-size: 24px;
+	color: rgba(var(--daily-color));
+	margin-top: 10px;
+}
+
+.notes-container .heading {
+	background-color: rgba(var(--notes-color), 0.3);
+	color: rgba(var(--notes-color));
 }
 
 .unsplash-image-container {
@@ -267,6 +327,7 @@ footer .social-links i:hover {
 	}
 	.right-container {
 		width: 100%;
+		margin-bottom: 35px;
 	}
 
 	.small-containers .container {
