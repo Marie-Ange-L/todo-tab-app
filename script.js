@@ -43,6 +43,25 @@ setInterval(getDayInfo, 1000);
 // todo list
 
 // quote
+function updateDailyQuote(quote, author) {
+	const quoteText = document.querySelector(".quote-text");
+	const quoteAuthor = document.querySelector(".quote-author");
+	quoteText.textContent = quote;
+	quoteAuthor.textContent = author;
+}
+
+function getQuote() {
+	fetch("https://api.quotable.io/random")
+		.then((response) => response.json())
+		.then((quote) => {
+			updateDailyQuote(quote.content, quote.author);
+		})
+		.catch((error) => {
+			console.error("Error fetching data from the Quotable API:", error);
+		});
+}
+
+getQuote();
 
 // daily tracker
 
