@@ -278,6 +278,27 @@ h2 {
 	color: rgba(var(--notes-color));
 }
 
+.notes-container .notes-text {
+	height: 100%;
+	width: 100%;
+	padding: 8px;
+}
+
+.notes-container textarea {
+	box-sizing: border-box;
+	width: calc(100% - 16px);
+	height: 80%;
+	resize: none;
+	border: none;
+	border-radius: 2px;
+	font-family: inherit;
+	padding: 5px;
+}
+
+.notes-container textarea:focus {
+	outline: none;
+}
+
 .unsplash-image-container {
 	overflow: hidden;
 }
