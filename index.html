@@ -16,13 +16,8 @@
 	<body>
 		<div class="dashboard">
 			<div class="header">
-				<h1>Hello</h1>
-				<div class="day-infos-container" id="dayInfos">
-					<p>
-						December 20, 2023 | 16:00<br />
-						(✿◡‿◡)<br />it’s <strong>Wednesday</strong>
-					</p>
-				</div>
+				<h1>Hello <span id="name"></span></h1>
+				<div class="day-info" id="day_info">Loading&hellip;</div>
 			</div>
 			<div class="main">
 				<div class="left-container">
@@ -107,7 +102,7 @@
 		</div>
 		<footer>
 			<p>
-				© 2023 |
+				© <span id="year"></span> |
 				<a href="https://www.marieange.dev/" target="_blank"
 					>www.marieange.dev</a
 				>
