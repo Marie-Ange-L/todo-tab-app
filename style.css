@@ -241,8 +241,7 @@ h2 {
 	background-color: rgba(var(--daily-color));
 }
 
-/* Optional: Style the label associated with the checkbox */
-label {
+.daily-tracker-container .daily-list label {
 	margin-left: 5px;
 	cursor: pointer;
 }
