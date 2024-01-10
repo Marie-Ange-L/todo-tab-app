@@ -171,7 +171,7 @@ h2 {
 }
 
 .quote-container {
-	height: 150px;
+	min-height: 110px;
 	padding: 20px;
 	position: relative;
 }
@@ -190,7 +190,7 @@ h2 {
 	font-family: "Pacifico", sans-serif;
 	font-size: 24px;
 	text-align: center;
-	margin: 10px 50px;
+	margin: 5px 60px 30px;
 }
 
 .quote-container .quote-author {
@@ -354,6 +354,7 @@ footer .social-links i:hover {
 	}
 	.right-container {
 		width: 100%;
+		height: auto;
 		margin-bottom: 35px;
 	}
 
