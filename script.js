@@ -5,8 +5,8 @@ const storedName = localStorage.getItem("userName");
 if (storedName) {
 	nameEl.textContent = storedName;
 } else {
-	nameEl.textContent = "{name}";
-	localStorage.setItem("userName", "{name}");
+	nameEl.textContent = "'click to add name'";
+	localStorage.setItem("userName", "'click to add name'");
 }
 
 nameEl.addEventListener("input", () => {

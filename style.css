@@ -74,6 +74,10 @@ h1 {
 	text-shadow: 4px 4px 0 rgba(var(--text-color));
 }
 
+h1 span:hover {
+	cursor: pointer;
+}
+
 h2 {
 	font-family: "Pacifico", cursive;
 	font-weight: 500;
@@ -361,6 +365,11 @@ footer .social-links i:hover {
 	body {
 		overflow: auto;
 	}
+
+	h1 {
+		font-size: 52px;
+	}
+
 	.right-container {
 		width: 100%;
 		height: auto;
