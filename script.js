@@ -13,19 +13,20 @@ const daysOfWeek = [
 	{ day: "Friday", smiley: "(❁´◡`❁)" },
 	{ day: "Saturday", smiley: "☆*: .｡. o(≧▽≦)o .｡.:*☆" },
 ];
-const currentDate = new Date();
-const currentDay = daysOfWeek[currentDate.getDay()];
-const month = currentDate.toLocaleString("en-US", { month: "long" });
-const date = currentDate.getDate();
-const year = currentDate.getFullYear();
-
-const yearEl = document.getElementById("year");
-yearEl.textContent = year;
-
-const hours = currentDate.getHours();
-const minutes = currentDate.getMinutes();
 
 function getDayInfo() {
+	const currentDate = new Date();
+	const currentDay = daysOfWeek[currentDate.getDay()];
+	const month = currentDate.toLocaleString("en-US", { month: "long" });
+	const date = currentDate.getDate();
+	const year = currentDate.getFullYear();
+
+	const yearEl = document.getElementById("year");
+	yearEl.textContent = year;
+
+	const hours = currentDate.getHours();
+	const minutes = currentDate.getMinutes();
+
 	const formattedTime = `${hours}:${minutes < 10 ? "0" + minutes : minutes}
 	`;
 	dayInfoContainer.innerHTML = `
