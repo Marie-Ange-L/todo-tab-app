@@ -144,3 +144,12 @@ updateProgress();
 resetProgress();
 
 // notes
+const notesEl = document.getElementById("notes");
+
+notesEl.value = localStorage.getItem("notesContent") || "";
+
+function handleNotes() {
+	localStorage.setItem("notesContent", notesEl.value);
+}
+
+notesEl.addEventListener("input", handleNotes);

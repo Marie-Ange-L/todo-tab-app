@@ -302,6 +302,10 @@ h2 {
 	padding: 5px;
 }
 
+.notes-container textarea::placeholder {
+	color: rgba(var(--text-color), 0.25);
+}
+
 .notes-container textarea:focus {
 	outline: none;
 }
