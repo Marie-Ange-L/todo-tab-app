@@ -46,14 +46,29 @@ const todoList = document.getElementById("todo");
 const todoInput = document.getElementById("todo_text");
 const todoBtn = document.getElementById("todo_btn");
 
-function toggleStrike(listItem) {
+const storedTodoItems = JSON.parse(localStorage.getItem("todoItems")) || [];
+
+function toggleTodoDone(listItem) {
 	listItem.classList.toggle("done");
+
+	const itemText = listItem.textContent;
+	const storedItem = storedTodoItems.find((item) => item.text === itemText);
+	if (storedItem) {
+		storedItem.done = !storedItem.done;
+		updateTodoLocalStorage();
+	}
 }
 
-function confirmDelete(listItem) {
+function confirmTodoDelete(listItem) {
 	const confirmation = confirm("Are you sure you want to delete this task?");
 	if (confirmation) {
 		listItem.remove();
+
+		const itemText = listItem.textContent;
+		const updatedStoredItems = storedTodoItems.filter(
+			(item) => item.text !== itemText
+		);
+		localStorage.setItem("todoItems", JSON.stringify(updatedStoredItems));
 	}
 }
 
@@ -64,16 +79,44 @@ function addTodo() {
 		newTodo.classList.add("list-item");
 		newTodo.textContent = todoText;
 
-		newTodo.addEventListener("click", () => toggleStrike(newTodo));
+		newTodo.addEventListener("click", () => toggleTodoDone(newTodo));
 		newTodo.addEventListener("contextmenu", (e) => {
 			e.preventDefault();
-			confirmDelete(newTodo);
+			confirmTodoDelete(newTodo);
 		});
 
 		todoList.querySelector("ul").appendChild(newTodo);
 		todoInput.value = "";
+
+		const existingItem = storedTodoItems.find((item) => item.text === todoText);
+		if (!existingItem) {
+			storedTodoItems.push({ text: todoText, done: false });
+			updateTodoLocalStorage();
+		}
 	}
 }
+
+function updateTodoLocalStorage() {
+	localStorage.setItem("todoItems", JSON.stringify(storedTodoItems));
+}
+
+storedTodoItems.forEach((item) => {
+	const newTodo = document.createElement("li");
+	newTodo.classList.add("list-item");
+	newTodo.textContent = item.text;
+
+	if (item.done) {
+		newTodo.classList.add("done");
+	}
+
+	newTodo.addEventListener("click", () => toggleTodoDone(newTodo));
+	newTodo.addEventListener("contextmenu", (e) => {
+		e.preventDefault();
+		confirmTodoDelete(newTodo);
+	});
+
+	todoList.querySelector("ul").appendChild(newTodo);
+});
 
 todoBtn.addEventListener("click", addTodo);
 todoInput.addEventListener("keydown", (e) => {
