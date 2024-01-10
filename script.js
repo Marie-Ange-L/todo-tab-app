@@ -1,7 +1,19 @@
-// current day & time information
+// user name
 const nameEl = document.getElementById("name");
-nameEl.textContent = "M-A";
 
+const storedName = localStorage.getItem("userName");
+if (storedName) {
+	nameEl.textContent = storedName;
+} else {
+	nameEl.textContent = "{name}";
+	localStorage.setItem("userName", "{name}");
+}
+
+nameEl.addEventListener("input", () => {
+	localStorage.setItem("userName", nameEl.textContent);
+});
+
+// current day & time information
 const dayInfoContainer = document.getElementById("day_info");
 
 const daysOfWeek = [
