@@ -123,6 +123,11 @@ h2 {
 .todo-container .todo-list li {
 	padding: 20px;
 	border-bottom: 1px solid rgba(var(--text-color), 0.25);
+	line-height: 18px;
+}
+
+.todo-container .todo-list li:hover {
+	cursor: pointer;
 }
 
 .todo-container .todo-list li.done {

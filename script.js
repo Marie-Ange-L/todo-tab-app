@@ -42,6 +42,45 @@ getDayInfo();
 setInterval(getDayInfo, 1000);
 
 // todo list
+const todoList = document.getElementById("todo");
+const todoInput = document.getElementById("todo_text");
+const todoBtn = document.getElementById("todo_btn");
+
+function toggleStrike(listItem) {
+	listItem.classList.toggle("done");
+}
+
+function confirmDelete(listItem) {
+	const confirmation = confirm("Are you sure you want to delete this task?");
+	if (confirmation) {
+		listItem.remove();
+	}
+}
+
+function addTodo() {
+	const todoText = todoInput.value.trim();
+	if (todoText) {
+		const newTodo = document.createElement("li");
+		newTodo.classList.add("list-item");
+		newTodo.textContent = todoText;
+
+		newTodo.addEventListener("click", () => toggleStrike(newTodo));
+		newTodo.addEventListener("contextmenu", (e) => {
+			e.preventDefault();
+			confirmDelete(newTodo);
+		});
+
+		todoList.querySelector("ul").appendChild(newTodo);
+		todoInput.value = "";
+	}
+}
+
+todoBtn.addEventListener("click", addTodo);
+todoInput.addEventListener("keydown", (e) => {
+	if (e.key === "Enter") {
+		addTodo();
+	}
+});
 
 // quote
 function updateDailyQuote(quote, author) {
