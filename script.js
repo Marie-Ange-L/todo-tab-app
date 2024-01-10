@@ -78,27 +78,69 @@ const progressMessages = [
 	"Well done!",
 ];
 
-let progressCounter = 0;
+let data = JSON.parse(localStorage.getItem("dailyTrackerData")) || {
+	progressCounter: 0,
+	checkboxStates: {},
+	resetDay: new Date().toLocaleDateString(),
+};
 
 function updateProgress() {
-	const progressWidth = (progressCounter / checkboxes.length) * 100 + "%";
+	const progressWidth = (data.progressCounter / checkboxes.length) * 100 + "%";
 	progressBar.querySelector(".progress").style.width = progressWidth;
-	const messageIndex = Math.min(progressCounter, progressMessages.length - 1);
+	const messageIndex = Math.min(
+		data.progressCounter,
+		progressMessages.length - 1
+	);
 	progressMessage.innerText = progressMessages[messageIndex];
 }
 
+function updateLocalStorage() {
+	localStorage.setItem("dailyTrackerData", JSON.stringify(data));
+}
+
+function resetDailyTracker() {
+	data.progressCounter = 0;
+	data.checkboxStates = {};
+	data.resetDay = new Date().toLocaleDateString();
+
+	checkboxes.forEach((checkbox) => {
+		checkbox.checked = false;
+	});
+
+	updateProgress();
+	updateLocalStorage();
+}
+
+function resetProgress() {
+	const currentDay = new Date().toLocaleDateString();
+
+	if (data.resetDay !== currentDay) {
+		resetDailyTracker();
+	}
+}
+
 checkboxes.forEach((checkbox) => {
+	checkbox.checked = data.checkboxStates[checkbox.id] || false;
 	checkbox.addEventListener("change", () => {
 		if (checkbox.checked) {
-			progressCounter++;
+			data.progressCounter++;
 		} else {
-			progressCounter--;
+			data.progressCounter--;
 		}
 
-		progressCounter = Math.max(0, Math.min(progressCounter, checkboxes.length));
+		data.progressCounter = Math.max(
+			0,
+			Math.min(data.progressCounter, checkboxes.length)
+		);
+
+		data.checkboxStates[checkbox.id] = checkbox.checked;
 
 		updateProgress();
+		updateLocalStorage();
 	});
 });
+
+updateProgress();
+resetProgress();
 
 // notes
