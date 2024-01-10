@@ -63,5 +63,42 @@ async function getQuote() {
 getQuote();
 
 // daily tracker
+const progressBar = document.getElementById("progress_bar");
+const progressMessage = document.getElementById("progress_message");
+const checkboxes = document.querySelectorAll(
+	".daily-list input[type='checkbox'"
+);
+
+const progressMessages = [
+	"You can do it!",
+	"Great start!",
+	"Making progress!",
+	"Almost there!",
+	"Keep it up!",
+	"Well done!",
+];
+
+let progressCounter = 0;
+
+function updateProgress() {
+	const progressWidth = (progressCounter / checkboxes.length) * 100 + "%";
+	progressBar.querySelector(".progress").style.width = progressWidth;
+	const messageIndex = Math.min(progressCounter, progressMessages.length - 1);
+	progressMessage.innerText = progressMessages[messageIndex];
+}
+
+checkboxes.forEach((checkbox) => {
+	checkbox.addEventListener("change", () => {
+		if (checkbox.checked) {
+			progressCounter++;
+		} else {
+			progressCounter--;
+		}
+
+		progressCounter = Math.max(0, Math.min(progressCounter, checkboxes.length));
+
+		updateProgress();
+	});
+});
 
 // notes

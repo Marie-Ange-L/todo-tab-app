@@ -270,12 +270,12 @@ h2 {
 .daily-tracker-container .daily-progress .progress {
 	background-color: rgba(var(--daily-color));
 	height: 100%;
-	width: calc(2 / 5 * 100%);
+	width: 0;
 }
 
 .daily-tracker-container .daily-progress .progress-message {
 	font-family: "Archivo Black", sans-serif;
-	font-size: 24px;
+	font-size: 20px;
 	color: rgba(var(--daily-color));
 	margin-top: 10px;
 }
