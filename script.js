@@ -50,15 +50,14 @@ function updateDailyQuote(quote, author) {
 	quoteAuthor.textContent = author;
 }
 
-function getQuote() {
-	fetch("https://api.quotable.io/random")
-		.then((response) => response.json())
-		.then((quote) => {
-			updateDailyQuote(quote.content, quote.author);
-		})
-		.catch((error) => {
-			console.error("Error fetching data from the Quotable API:", error);
-		});
+async function getQuote() {
+	try {
+		const response = await fetch("https://api.quotable.io/random");
+		const quote = await response.json();
+		updateDailyQuote(quote.content, quote.author);
+	} catch (error) {
+		console.error("Error fetching data from the Quotable API:", error);
+	}
 }
 
 getQuote();
