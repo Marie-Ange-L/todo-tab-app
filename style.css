@@ -401,20 +401,24 @@ footer .social-links i:hover {
 }
 
 .modal-button {
-	margin: 0 auto;
+	margin: 10px auto;
 	background-color: rgba(var(--text-color), 0.15);
 	border: none;
 	border-radius: 4px;
 	color: rgba(var(--text-color));
 	font-family: inherit;
 	font-weight: bold;
-	margin-top: 10px;
 	padding: 5px 20px;
 	cursor: pointer;
 }
 
 .modal-button:hover {
 	background-color: rgba(var(--text-color), 0.25);
+}
+
+.modal small {
+	font-size: 10px;
+	color: rgba(var(--text-color), 0.75);
 }
 
 @media (max-width: 1340px) {
@@ -425,9 +429,11 @@ footer .social-links i:hover {
 	h1 {
 		font-size: 52px;
 	}
+
 	.day-info {
 		text-align: left;
 	}
+
 	.right-container {
 		width: 100%;
 		height: auto;
@@ -437,43 +443,87 @@ footer .social-links i:hover {
 	.small-containers .container {
 		margin-bottom: 25px;
 	}
+}
 
-	@media (max-width: 768px) {
-		h1 {
-			font-size: 42px;
-		}
+@media (max-width: 768px) {
+	h1 {
+		font-size: 42px;
+	}
 
-		.left-container {
-			width: 100%;
-			min-width: 100%;
-		}
+	.left-container {
+		width: 100%;
+		min-width: 100%;
+	}
 
-		.right-container {
-			min-width: 100%;
-			display: block;
-		}
+	.right-container {
+		min-width: 100%;
+		display: block;
+	}
 
-		footer {
-			position: relative;
-			height: auto;
-			display: flex;
-			flex-direction: column;
-			min-width: 100%;
-			padding: 15px 0;
-		}
+	footer {
+		position: relative;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		min-width: 100%;
+		padding: 15px 0;
+	}
 
-		footer p {
-			margin: 7px 0;
-		}
+	footer p {
+		margin: 7px 0;
+	}
 
-		footer .social-links {
-			margin: 14px 0 7px;
-		}
+	footer .social-links {
+		margin: 14px 0 7px;
+	}
 
-		.modal {
-			overflow-y: auto;
-			max-height: 90vh;
-			width: 80vw;
-		}
+	.modal {
+		overflow-y: auto;
+		max-height: 90vh;
+		width: 80vw;
+	}
+}
+
+@media (max-width: 480px) {
+	h1 {
+		font-size: 36px;
+	}
+
+	.day-info {
+		font-size: 14px;
+	}
+
+	h2 {
+		font-size: 26px;
+	}
+
+	.container .heading {
+		height: 46px;
+	}
+
+	.container .heading h2 {
+		bottom: -12px;
+	}
+
+	.quote-container .quote-icon {
+		font-size: 56px;
+	}
+
+	.quote-container .quote-text {
+		font-size: 18px;
+		margin: 10px 30px 15px;
+	}
+
+	.quote-container .quote-author {
+		font-size: 16px;
+		margin: 8px 0;
+	}
+
+	.small-containers .container {
+		width: 100%;
+	}
+
+	.daily-tracker-container li {
+		font-size: 14px;
 	}
 }
