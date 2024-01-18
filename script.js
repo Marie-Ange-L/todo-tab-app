@@ -1,3 +1,21 @@
+// modal
+var aboutLink = document.getElementById("aboutLink");
+var aboutModal = document.getElementById("aboutModal");
+var modalClose = document.getElementById("closeModal");
+var modalBtn = document.getElementById("modalOkButton");
+
+aboutLink.addEventListener("click", openModal);
+modalClose.addEventListener("click", closeModalHandler);
+modalBtn.addEventListener("click", closeModalHandler);
+
+function openModal() {
+	aboutModal.style.display = "block";
+}
+
+function closeModalHandler() {
+	aboutModal.style.display = "none";
+}
+
 // user name
 const nameEl = document.getElementById("name");
 

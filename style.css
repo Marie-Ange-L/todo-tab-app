@@ -19,6 +19,7 @@ body {
 	font-weight: 300;
 	font-size: 14px;
 	color: rgba(var(--text-color));
+	margin: 0;
 }
 
 .dashboard {
@@ -357,8 +358,63 @@ footer .social-links i {
 	font-size: 16px;
 	padding: 0 8px;
 }
+
 footer .social-links i:hover {
 	transform: scale(1.1);
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+	color: rgba(var(--text-color));
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	z-index: 2;
+}
+
+.modal-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.modal-content ul {
+	padding-left: 20px;
+	margin-top: 0;
+}
+
+.modal-content p {
+	margin: 7px 0;
+}
+
+.modal-close {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	color: rgba(var(--text-color));
+	font-size: 30px;
+	cursor: pointer;
+}
+
+.modal-button {
+	margin: 0 auto;
+	background-color: rgba(var(--text-color), 0.15);
+	border: none;
+	border-radius: 4px;
+	color: rgba(var(--text-color));
+	font-family: inherit;
+	font-weight: bold;
+	margin-top: 10px;
+	padding: 5px 20px;
+	cursor: pointer;
+}
+
+.modal-button:hover {
+	background-color: rgba(var(--text-color), 0.25);
 }
 
 @media (max-width: 1340px) {
@@ -371,19 +427,18 @@ footer .social-links i:hover {
 	}
 	.day-info {
 		text-align: left;
-
-		.right-container {
-			width: 100%;
-			height: auto;
-			margin-bottom: 35px;
-		}
-
-		.small-containers .container {
-			margin-bottom: 25px;
-		}
+	}
+	.right-container {
+		width: 100%;
+		height: auto;
+		margin-bottom: 35px;
 	}
 
-	@media (max-width: 480px) {
+	.small-containers .container {
+		margin-bottom: 25px;
+	}
+
+	@media (max-width: 768px) {
 		h1 {
 			font-size: 42px;
 		}
@@ -396,13 +451,29 @@ footer .social-links i:hover {
 		.right-container {
 			min-width: 100%;
 			display: block;
-			margin-bottom: 950px;
 		}
-		.quote-container {
-			max-width: 90%;
+
+		footer {
+			position: relative;
+			height: auto;
+			display: flex;
+			flex-direction: column;
+			min-width: 100%;
+			padding: 15px 0;
 		}
-		.notes-container {
-			margin: 25px 0;
+
+		footer p {
+			margin: 7px 0;
+		}
+
+		footer .social-links {
+			margin: 14px 0 7px;
+		}
+
+		.modal {
+			overflow-y: auto;
+			max-height: 90vh;
+			width: 80vw;
 		}
 	}
 }
