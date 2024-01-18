@@ -4,7 +4,10 @@ var aboutModal = document.getElementById("aboutModal");
 var modalClose = document.getElementById("closeModal");
 var modalBtn = document.getElementById("modalOkButton");
 
-aboutLink.addEventListener("click", openModal);
+aboutLink.addEventListener("click", function (event) {
+	event.preventDefault();
+	openModal();
+});
 modalClose.addEventListener("click", closeModalHandler);
 modalBtn.addEventListener("click", closeModalHandler);
 
