@@ -271,8 +271,12 @@ function handleNotes() {
 notesEl.addEventListener("input", handleNotes);
 
 // get unsplash image
+const keywords = ["art", "color", "graphic"];
+
+const randomKeyword = keywords[Math.floor(Math.random() * keywords.length)];
+
 fetch(
-	"https://api.unsplash.com/photos/random/?client_id=7r9FtuBLZzMDqHTSzzqyf6daGqHGxXfMwbyupzu-Geo"
+	`https://api.unsplash.com/photos/random/?client_id=7r9FtuBLZzMDqHTSzzqyf6daGqHGxXfMwbyupzu-Geo&license=free&query=${randomKeyword}`
 )
 	.then((response) => response.json())
 	.then((data) => {
