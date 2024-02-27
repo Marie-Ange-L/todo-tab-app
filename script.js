@@ -279,14 +279,32 @@ fetch(
 	`https://api.unsplash.com/photos/random/?client_id=7r9FtuBLZzMDqHTSzzqyf6daGqHGxXfMwbyupzu-Geo&license=free&query=${randomKeyword}`
 )
 	.then((response) => response.json())
+
 	.then((data) => {
 		const imageUrl = data.urls.regular;
+		const title = capitalizeFirstLetter(data.alt_description);
+		const author = data.user.name;
 		const unsplashPageUrl = data.links.html;
 
 		const imageElement = document.getElementById("unsplashImage");
+		const imageTitle = document.getElementById("imageTitle");
+		const imageAuthor = document.getElementById("imageAuthor");
+
 		imageElement.src = imageUrl;
+		imageElement.alt = title;
+		imageTitle.textContent = title;
+		imageAuthor.textContent = `By: ${author}`;
+
 		imageElement.parentElement.href = unsplashPageUrl;
+
+		console.log(data);
 	})
 	.catch((error) => {
 		console.error("Error fetching random image:", error);
 	});
+
+function capitalizeFirstLetter(string) {
+	return string.toLowerCase().replace(/(?:^|\s)\S/g, function (firstLetter) {
+		return firstLetter.toUpperCase();
+	});
+}

@@ -325,6 +325,8 @@ h2 {
 
 .unsplash-image-container {
 	overflow: hidden;
+	position: relative;
+	display: inline-block;
 }
 
 .unsplash-image-container img {
@@ -332,6 +334,34 @@ h2 {
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
+}
+
+.unsplash-image-container .image-info {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+	padding: 10px;
+	color: #fff;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.unsplash-image-container:hover .image-info {
+	opacity: 1;
+}
+
+#imageTitle,
+#imageAuthor {
+	margin: 0;
+	font-family: inherit;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+#imageTitle {
+	font-weight: bold;
 }
 
 footer {
