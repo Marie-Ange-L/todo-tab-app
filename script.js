@@ -296,8 +296,7 @@ async function fetchRandomImage() {
 		imageElement.src = imageUrl;
 		imageElement.alt = title;
 		imageTitle.textContent = title;
-		imageAuthor.textContent = `By: ${author}`;
-
+		imageAuthor.innerHTML = `By: ${author} on <a href="${imageUrl}" target="_blank">Unsplash</a>`;
 		imageElement.parentElement.href = unsplashPageUrl;
 	} catch (error) {
 		console.error("Error fetching random image:", error);
