@@ -271,16 +271,19 @@ function handleNotes() {
 notesEl.addEventListener("input", handleNotes);
 
 // get unsplash image
-const keywords = ["art", "color", "graphic"];
+async function fetchRandomImage() {
+	try {
+		const keywords = ["art", "color", "graphic"];
+		const randomKeyword = keywords[Math.floor(Math.random() * keywords.length)];
+		const unsplashApiUrl = `https://api.unsplash.com/photos/random/?client_id=7r9FtuBLZzMDqHTSzzqyf6daGqHGxXfMwbyupzu-Geo&license=free&query=${randomKeyword}`;
 
-const randomKeyword = keywords[Math.floor(Math.random() * keywords.length)];
+		const response = await fetch(unsplashApiUrl);
+		if (!response.ok) {
+			throw new Error("Failed to fetch random image");
+		}
 
-fetch(
-	`https://api.unsplash.com/photos/random/?client_id=7r9FtuBLZzMDqHTSzzqyf6daGqHGxXfMwbyupzu-Geo&license=free&query=${randomKeyword}`
-)
-	.then((response) => response.json())
+		const data = await response.json();
 
-	.then((data) => {
 		const imageUrl = data.urls.regular;
 		const title = capitalizeFirstLetter(data.alt_description);
 		const author = data.user.name;
@@ -296,15 +299,13 @@ fetch(
 		imageAuthor.textContent = `By: ${author}`;
 
 		imageElement.parentElement.href = unsplashPageUrl;
-
-		console.log(data);
-	})
-	.catch((error) => {
+	} catch (error) {
 		console.error("Error fetching random image:", error);
-	});
+	}
+}
 
 function capitalizeFirstLetter(string) {
-	return string.toLowerCase().replace(/(?:^|\s)\S/g, function (firstLetter) {
-		return firstLetter.toUpperCase();
-	});
+	return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+fetchRandomImage();
