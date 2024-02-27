@@ -206,10 +206,6 @@ h2 {
 	overflow: auto;
 }
 
-.quote-container .quote-text.large {
-	font-size: 18px;
-}
-
 .quote-container .quote-author {
 	color: rgba(var(--text-color), 0.25);
 	font-family: "Archivo Black", sans-serif;
