@@ -184,6 +184,7 @@ h2 {
 	min-height: 110px;
 	padding: 20px;
 	position: relative;
+	overflow: hidden;
 }
 
 .quote-container .quote-icon {
@@ -201,6 +202,12 @@ h2 {
 	font-size: 24px;
 	text-align: center;
 	margin: 5px 60px 30px;
+	max-height: 90px;
+	overflow: auto;
+}
+
+.quote-container .quote-text.large {
+	font-size: 18px;
 }
 
 .quote-container .quote-author {
@@ -442,6 +449,11 @@ footer .social-links i:hover {
 
 	.small-containers .container {
 		margin-bottom: 25px;
+	}
+
+	.quote-container .quote-text {
+		max-height: none;
+		overflow: unset;
 	}
 }
 
