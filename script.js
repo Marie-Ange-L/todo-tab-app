@@ -269,3 +269,20 @@ function handleNotes() {
 }
 
 notesEl.addEventListener("input", handleNotes);
+
+// get unsplash image
+fetch(
+	"https://api.unsplash.com/photos/random/?client_id=7r9FtuBLZzMDqHTSzzqyf6daGqHGxXfMwbyupzu-Geo"
+)
+	.then((response) => response.json())
+	.then((data) => {
+		const imageUrl = data.urls.regular;
+		const unsplashPageUrl = data.links.html;
+
+		const imageElement = document.getElementById("unsplashImage");
+		imageElement.src = imageUrl;
+		imageElement.parentElement.href = unsplashPageUrl;
+	})
+	.catch((error) => {
+		console.error("Error fetching random image:", error);
+	});
