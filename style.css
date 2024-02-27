@@ -343,9 +343,17 @@ h2 {
 	width: 100%;
 	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
 	padding: 10px;
-	color: #fff;
+	color: #f8f8f8;
 	opacity: 0;
 	transition: opacity 0.3s ease;
+}
+
+.unsplash-image-container .image-info a {
+	color: #f8f8f8;
+}
+
+.unsplash-image-container .image-info a:hover {
+	text-decoration: none;
 }
 
 .unsplash-image-container:hover .image-info {
