@@ -168,11 +168,19 @@ function updateDailyQuote(quote, author) {
 
 async function getQuote() {
 	try {
-		const response = await fetch("https://api.quotable.io/random");
-		const quote = await response.json();
-		updateDailyQuote(quote.content, quote.author);
+		const response = await fetch(
+			"https://api.allorigins.win/get?url=https://zenquotes.io/api/random"
+		);
+		if (!response.ok) {
+			throw new Error(`HTTP error! Status: ${response.status}`);
+		}
+		const data = await response.json();
+		const quoteData = JSON.parse(data.contents);
+		const quoteText = quoteData[0].q;
+		const author = quoteData[0].a;
+		updateDailyQuote(quoteText, author);
 	} catch (error) {
-		console.error("Error fetching data from the Quotable API:", error);
+		console.error("Error fetching data", error);
 	}
 }
 
