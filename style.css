@@ -118,6 +118,11 @@ h2 {
 	color: rgba(var(--todo-color));
 }
 
+.todo-list {
+	height: 475px;
+	overflow-y: auto;
+}
+
 .todo-container .todo-list ul {
 	list-style-type: none;
 	margin: 0;
@@ -201,6 +206,7 @@ h2 {
 	font-family: "Pacifico", sans-serif;
 	font-size: 24px;
 	text-align: center;
+	text-wrap: balance;
 	margin: 5px 60px 30px;
 	max-height: 90px;
 	overflow: auto;
@@ -312,6 +318,7 @@ h2 {
 	border: none;
 	border-radius: 2px;
 	font-family: inherit;
+	line-height: 18px;
 	padding: 5px;
 }
 
