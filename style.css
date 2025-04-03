@@ -35,6 +35,43 @@ body {
 	padding: 0 15px;
 }
 
+.header-tools {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 30px;
+}
+
+.useful-icons {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 15px;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+}
+
+.useful-icons i {
+	color: rgba(var(--text-color));
+	font-size: 20px;
+}
+
+.useful-icons a:hover i.fa-calendar-days {
+	color: rgba(var(--todo-color));
+}
+
+.useful-icons a:hover i.fa-envelope {
+	color: rgba(var(--notes-color));
+}
+
+.useful-icons a:hover i.fa-google-drive {
+	color: rgba(var(--daily-color));
+}
+
+.useful-icons a:hover i.fa-stopwatch {
+	color: #038fce;
+}
+
 .day-info {
 	text-align: right;
 	font-size: 16px;
@@ -541,6 +578,10 @@ footer .social-links i:hover {
 	h1 {
 		font-size: 36px;
 		margin-top: 10px;
+	}
+
+	.header-tools {
+		width: 100vw;
 	}
 
 	.day-info {
