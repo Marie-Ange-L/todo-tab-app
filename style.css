@@ -600,18 +600,21 @@ footer .social-links i:hover {
 		bottom: -12px;
 	}
 
+	.quote-container {
+		height: auto;
+	}
+
 	.quote-container .quote-icon {
 		font-size: 56px;
 	}
 
 	.quote-container .quote-text {
-		font-size: 18px;
-		margin: 10px 30px 15px;
+		margin: 10px 30px 26px;
 	}
 
 	.quote-container .quote-author {
-		font-size: 16px;
-		margin: 8px 0;
+		font-size: 18px;
+		margin: 14px 0;
 	}
 
 	.small-containers .container {
