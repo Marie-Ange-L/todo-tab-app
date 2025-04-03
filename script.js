@@ -158,29 +158,63 @@ todoInput.addEventListener("keydown", (e) => {
 	}
 });
 
-// quote
+// quote API version
+// function updateDailyQuote(quote, author) {
+// 	const quoteText = document.querySelector(".quote-text");
+// 	const quoteAuthor = document.querySelector(".quote-author");
+// 	quoteText.textContent = quote;
+// 	quoteAuthor.textContent = author;
+// }
+
+// async function getQuote() {
+// 	try {
+// 		const response = await fetch(
+// 			"https://api.allorigins.win/get?url=https://zenquotes.io/api/random"
+// 		);
+// 		if (!response.ok) {
+// 			throw new Error(`HTTP error! Status: ${response.status}`);
+// 		}
+// 		const data = await response.json();
+// 		const quoteData = JSON.parse(data.contents);
+// 		const quoteText = quoteData[0].q;
+// 		const author = quoteData[0].a;
+// 		updateDailyQuote(quoteText, author);
+// 	} catch (error) {
+// 		console.error("Error fetching data", error);
+// 	}
+// }
+
+// getQuote();
+
+// quote Local Version
 function updateDailyQuote(quote, author) {
 	const quoteText = document.querySelector(".quote-text");
 	const quoteAuthor = document.querySelector(".quote-author");
-	quoteText.textContent = quote;
-	quoteAuthor.textContent = author;
+
+	if (quoteText && quoteAuthor) {
+		quoteText.textContent = quote;
+		quoteAuthor.textContent = author;
+	} else {
+		console.error(
+			"Les éléments .quote-text ou .quote-author sont introuvables"
+		);
+	}
 }
 
 async function getQuote() {
 	try {
-		const response = await fetch(
-			"https://api.allorigins.win/get?url=https://zenquotes.io/api/random"
-		);
+		const response = await fetch("quotes.json");
 		if (!response.ok) {
 			throw new Error(`HTTP error! Status: ${response.status}`);
 		}
-		const data = await response.json();
-		const quoteData = JSON.parse(data.contents);
-		const quoteText = quoteData[0].q;
-		const author = quoteData[0].a;
-		updateDailyQuote(quoteText, author);
+		const quotes = await response.json();
+
+		const randomIndex = Math.floor(Math.random() * quotes.length);
+		const quoteData = quotes[randomIndex];
+
+		updateDailyQuote(quoteData.content, quoteData.author);
 	} catch (error) {
-		console.error("Error fetching data", error);
+		console.error("Error fetching quotes", error);
 	}
 }
 
