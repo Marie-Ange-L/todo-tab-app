@@ -264,6 +264,7 @@ h2 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	gap: 25px;
 	margin-top: 25px;
 }
 
@@ -525,8 +526,8 @@ footer .social-links i:hover {
 		margin-bottom: 35px;
 	}
 
-	.small-containers .container {
-		margin-bottom: 25px;
+	.small-containers {
+		justify-content: start;
 	}
 
 	.quote-container .quote-text {
@@ -586,6 +587,10 @@ footer .social-links i:hover {
 
 	.day-info {
 		font-size: 14px;
+	}
+
+	.useful-icons i {
+		font-size: 16px;
 	}
 
 	h2 {
