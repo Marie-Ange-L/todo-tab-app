@@ -97,11 +97,14 @@ function confirmTodoDelete(listItem) {
 	if (confirmation) {
 		listItem.remove();
 
-		const itemText = listItem.textContent;
-		const updatedStoredItems = storedTodoItems.filter(
-			(item) => item.text !== itemText
-		);
-		localStorage.setItem("todoItems", JSON.stringify(updatedStoredItems));
+		const itemId = listItem.dataset.id;
+
+		const index = storedTodoItems.findIndex((item) => item.id === itemId);
+		if (index !== -1) {
+			storedTodoItems.splice(index, 1);
+		}
+
+		updateTodoLocalStorage();
 	}
 }
 
@@ -112,6 +115,9 @@ function addTodo() {
 		newTodo.classList.add("list-item");
 		newTodo.textContent = todoText;
 
+		const uniqueId = Date.now().toString();
+		newTodo.dataset.id = uniqueId;
+
 		newTodo.addEventListener("click", () => toggleTodoDone(newTodo));
 		newTodo.addEventListener("contextmenu", (e) => {
 			e.preventDefault();
@@ -121,11 +127,8 @@ function addTodo() {
 		todoList.querySelector("ul").appendChild(newTodo);
 		todoInput.value = "";
 
-		const existingItem = storedTodoItems.find((item) => item.text === todoText);
-		if (!existingItem) {
-			storedTodoItems.push({ text: todoText, done: false });
-			updateTodoLocalStorage();
-		}
+		storedTodoItems.push({ id: uniqueId, text: todoText, done: false });
+		updateTodoLocalStorage();
 	}
 }
 
@@ -137,6 +140,7 @@ storedTodoItems.forEach((item) => {
 	const newTodo = document.createElement("li");
 	newTodo.classList.add("list-item");
 	newTodo.textContent = item.text;
+	newTodo.dataset.id = item.id;
 
 	if (item.done) {
 		newTodo.classList.add("done");
