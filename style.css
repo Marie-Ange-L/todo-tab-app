@@ -281,6 +281,7 @@ h2 {
 .daily-tracker-container .daily-list ul {
 	list-style-type: none;
 	margin-top: 30px;
+	padding-left: 30px;
 }
 
 .daily-tracker-container .daily-list li {
